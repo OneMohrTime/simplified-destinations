@@ -85,7 +85,7 @@ class StarterSite extends Site {
     public function add_to_context( $context ) {
         $context['site']          = $this;
         $context['is_front_page'] = is_front_page();
-        $context['options']       = get_fields('option');
+        $context['globals']       = get_fields('option');
         $context['globalSidebar'] = dynamic_sidebar('globalSidebar');
 
         $custom_logo_url = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ), 'full' );

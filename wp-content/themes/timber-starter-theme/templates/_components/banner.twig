@@ -8,18 +8,33 @@
     images: params.images|default(null),
     video: params.video|default(null),
     button: params.button|default(null),
+    content: params.content|default(null)
 } %}
 
 {# -- Component Template -- #}
 
-<section class="c-banner is-{{ this.type }}{% if this.type == 'default' and this.image is empty %} no-image{% endif %}{% if this.type == 'video' %} u-ratio u-16:9{% endif %}">
+<section class="c-banner is-{{ this.type }}{% if this.type == 'default' and this.image is empty %} no-image{% endif %}">
+
+    {% if this.type == 'location' %}
+        <div class="c-banner__title">
+            <h1 class="u-title">{{ this.headline }}</h1>
+        </div>
+    {% endif %}
 
     <div class="c-banner__text">
 
-        <h1 class="u-title">{{ this.headline }}</h1>
+        {% if this.type != 'location' %}
+            <h1 class="u-title">{{ this.headline }}</h1>
+        {% endif %}
 
-        {% if this.subheadline %}
+        {% if this.subheadline and this.type != 'location' %}
             <strong class="u-subheadline">{{ this.subheadline }}</strong>
+        {% endif %}
+
+        {% if this.content and this.type == 'location' %}
+            <div class="u-wysiwyg">
+                {{ this.content }}
+            </div>
         {% endif %}
 
         {% if this.button %}
@@ -34,14 +49,8 @@
     </div>
 
     <figure class="c-banner__media">
-        {% if this.type == 'video' %}
-            {% include '_elements/video.twig' with {
-                params: {
-                    video: this.video
-                }
-            } only %}
 
-        {% elseif this.type == 'slides' %}
+        {% if this.type == 'slides' %}
             <div class="swiper is-cards" data-module-swiper>
                 {# Additional required wrapper #}
                 <div class="swiper-wrapper">
@@ -78,5 +87,11 @@
 
         {% endif %}
     </figure>
+
+    {% if this.subheadline and this.type == 'location' %}
+        <div class="c-banner__subtitle">
+            <strong class="u-subheadline">{{ this.subheadline }}</strong>
+        </div>
+    {% endif %}
 
 </section>

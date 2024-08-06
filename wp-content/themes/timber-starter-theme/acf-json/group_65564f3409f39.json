@@ -18,7 +18,7 @@
             },
             "choices": {
                 "default": "Single Image",
-                "video": "Video Embed",
+                "location": "Location Post",
                 "slides": "Slideshow"
             },
             "default_value": "default",
@@ -65,7 +65,7 @@
                     {
                         "field": "field_65564f378621a",
                         "operator": "==",
-                        "value": "video"
+                        "value": "location"
                     }
                 ]
             ],
@@ -172,5 +172,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1719782434
+    "modified": 1722915617
 }
