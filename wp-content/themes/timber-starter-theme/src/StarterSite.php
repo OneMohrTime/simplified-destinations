@@ -86,7 +86,13 @@ class StarterSite extends Site {
         $context['site']          = $this;
         $context['is_front_page'] = is_front_page();
         $context['globals']       = get_fields('option');
-        $context['globalSidebar'] = dynamic_sidebar('globalSidebar');
+        $context['globalSidebar'] = dynamic_sidebar('global_sidebar');
+        $context['locations']     = Timber::get_posts(array(
+            'post_type' => 'post',
+            'posts_per_page' => -1, // -1 means get all posts
+            'orderby' => 'title',
+            'order' => 'ASC',
+        ));
 
         $custom_logo_url = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ), 'full' );
         $context['siteLogo'] = $custom_logo_url;

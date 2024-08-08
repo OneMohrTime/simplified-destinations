@@ -4,7 +4,8 @@
     menu: navMenu,
     siteName: params.siteName,
     siteUrl: params.siteUrl,
-    logo: params.logo
+    logo: params.logo,
+    categories: params.categories
 } %}
 
 {# -- Component Template -- #}
@@ -62,24 +63,25 @@
         </li>
         {% endfor %}
 
-    </ul>
-    {% endif %}
-
-    {% if this.buttons %}
-        <ul class="c-navigation__buttons">
-            {% for button in this.buttons %}
-                <li>
-                    {% include '_elements/button.twig' with {
-                        params: {
-                            url: button.button.url,
-                            text: button.button.title,
-                            target: button.button.target,
-                            primary: loop.index == loop.length ? true : false
-                        }
-                    } only %}
+        {% if this.categories %}
+        <li class="c-navigation__menuItem c-menuItem">
+            <a href="javscript:;" class="u-link">Locations</a>
+            <ul class="c-submenu">
+                {% for submenu in this.categories %}
+                    <li class="c-submenu__item">
+                        <a href="{{ submenu.link }}" class="u-link">
+                            {{ submenu.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+                <li class="c-submenu__item">
+                    <a href="/locations" class="u-link">View All</a>
                 </li>
-            {% endfor %}
-        </ul>
+            </ul>
+        </li>
+        {% endif %}
+
+    </ul>
     {% endif %}
 
 </nav>

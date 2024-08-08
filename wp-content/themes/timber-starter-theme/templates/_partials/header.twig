@@ -3,6 +3,7 @@
 {% set this = {
     primary: params.menu|default(null),
     utility: params.utility|default(null),
+    categories: params.categories|default(null),
     siteName: params.siteName|default(null),
     siteLogo: params.siteLogo|default(null),
     siteUrl: params.siteUrl|default(null),
@@ -22,7 +23,8 @@
         params: {
             siteName: this.siteName,
             siteUrl: this.siteUrl,
-            logo: this.siteLogo
+            logo: this.siteLogo,
+            categories: this.categories
         }
     } only %}
 {% endif %}
