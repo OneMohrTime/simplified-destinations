@@ -29,12 +29,12 @@
 }
 
 @mixin content-width() {
-    @include media(">=medium") {
-        // cap line lengths
-        *:not([picture]):not([img]):not([iframe]):not(.u-wysiwyg) {
-            max-width: $copy-width;
-        }
-    }
+    // @include media(">=medium") {
+    //     // cap line lengths
+    //     *:not([picture]):not([img]):not([iframe]):not(.u-wysiwyg) {
+    //         max-width: $copy-width;
+    //     }
+    // }
 }
 
 //
@@ -187,7 +187,7 @@
 
 @mixin title($underline: null) {
     font-size: $font-h1;
-    letter-spacing: -1.5px;
+    // letter-spacing: -1.5px;
 
     @include media("<small") {
         font-size: $font-h2;
@@ -203,7 +203,7 @@
 
 @mixin subtitle($underline: null) {
     font-size: $font-h2;
-    letter-spacing: -0.5px;
+    // letter-spacing: -0.5px;
 
     @include media("<small") {
         hyphens: auto;
@@ -274,7 +274,7 @@
     font-weight: 700;
     line-height: 1em;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    // letter-spacing: 2px;
 }
 
 @mixin underlined() {

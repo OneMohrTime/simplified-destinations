@@ -17,7 +17,7 @@
 
     {% if this.type == 'location' %}
         <div class="c-banner__title">
-            <h1 class="u-title">{{ this.headline }}</h1>
+            <h1 class="u-stretch-text" data-module-fitty>{{ this.headline }}</h1>
         </div>
     {% endif %}
 
@@ -90,7 +90,7 @@
 
     {% if this.subheadline and this.type == 'location' %}
         <div class="c-banner__subtitle">
-            <strong class="u-subheadline">{{ this.subheadline }}</strong>
+            <strong class="u-stretch-text" data-module-fitty>{{ this.subheadline }}</strong>
         </div>
     {% endif %}
 

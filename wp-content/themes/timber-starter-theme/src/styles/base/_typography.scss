@@ -65,11 +65,9 @@ h6 {
     // font-size: 1.458vw;
 }
 
-._wysiwyg,
-.-wysiwyg {
+.u-wysiwyg {
 
     h1, h2, h3, h4, h5, h6 {
-
         // headers in a wysiwyg section only...hopefully
         &:not([class]) {
             margin-bottom: ($line-height / 3);
@@ -157,7 +155,6 @@ ul, ol, dl {
 * === UTILITY CLASSES ===
 */
 
-._title,
 .u-title {
     @include title();
 
@@ -172,7 +169,6 @@ ul, ol, dl {
     }
 }
 
-._headline,
 .u-headline {
     @include subtitle();
 
@@ -181,7 +177,6 @@ ul, ol, dl {
     }
 }
 
-._subheadline,
 .u-subheadline {
     @include paragraph();
 
@@ -190,9 +185,16 @@ ul, ol, dl {
     }
 }
 
-._text {
+.u-body-copy {
     @include type();
     @include content-width();
+}
+
+.u-stretch-text {
+    display: inline-block !important;
+    margin: 0;
+    white-space: nowrap !important;
+    transition: font-size $speed $bezier-slide;
 }
 
 /**
