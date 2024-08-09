@@ -36,67 +36,107 @@
 */
 
 @mixin btn-style {
-    @include btn-color();
-    padding: $small-spacing $base-spacing;
-    font-family: $font-header;
-    font-size: $font-base-sm;
-    font-weight: 700;
-    // letter-spacing: 0.5px;
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: $border-radius;
+    position: relative;
+    display: inline-block;
+    padding: 1em;
+    overflow: hidden;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: var(--primary-color, $white--dark);
+    color: var(--bg-color, $black--lighter);
+    z-index: 1;
+    -webkit-tap-highlight-color: transparent;
 
-    &::after {
+    // "background color"
+    &::before {
         content: "";
         position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
         right: 0;
         bottom: 0;
-        width: 0;
-        height: 10px;
-    }
-
-    @include media(">=small") {
-        // padding: 0.25vw 1vw;
-        &::after {
-            transition: all $speed;
-        }
-    }
-
-    // hover, focus
-    @include hocus {
-        background-color: transparent;
-        color: inherit;
-
-        @include media(">=small") {
-            transition: all $speed;
-            &::after {
-                left: 0;
-                width: 100%;
-            }
-        }
+        background-color: var(--secondary-color, $gray);
+        transform: scaleY(0);
+        transform-origin: 50% 100%;
+        transition-property: transform;
+        transition-duration: $speed;
+        transition-timing-function: $bezier-slide;
     }
 
     &:active {
-        background-color: $black;
-        color: $white;
+        // background-color: var(--tertiary-color, $gray--lightest);
+        // color: var(--bg-color, $black);
     }
 
-    // disabled buttons
-    &:disabled {
-        opacity: 1;
-        border-color: $gray;
-        background-color: transparent;
-        color: $gray;
-        cursor: not-allowed !important;
-        // hover, focus
-        @include hocus {
-            background-color: $white--dark;
-            color: $gray;
-            &::after {
-                display: none;
-            }
+    &:hover {
+        // background-color: var(--secondary-color, $gray--lightest);
+        color: var(--primary-color, $white);
+        &::before {
+            transform: scale(1);
         }
     }
+    // @include btn-color();
+    // padding: $small-spacing $base-spacing;
+    // font-family: $font-header;
+    // font-size: $font-base-sm;
+    // font-weight: 700;
+    // // letter-spacing: 0.5px;
+    // text-align: center;
+    // text-transform: uppercase;
+    // border-radius: $border-radius;
+
+    // &::after {
+    //     content: "";
+    //     position: absolute;
+    //     right: 0;
+    //     bottom: 0;
+    //     width: 0;
+    //     height: 10px;
+    // }
+
+    // @include media(">=small") {
+    //     // padding: 0.25vw 1vw;
+    //     &::after {
+    //         transition: all $speed;
+    //     }
+    // }
+
+    // // hover, focus
+    // @include hocus {
+    //     background-color: transparent;
+    //     color: inherit;
+
+    //     @include media(">=small") {
+    //         transition: all $speed;
+    //         &::after {
+    //             left: 0;
+    //             width: 100%;
+    //         }
+    //     }
+    // }
+
+    // &:active {
+    //     background-color: $black;
+    //     color: $white;
+    // }
+
+    // // disabled buttons
+    // &:disabled {
+    //     opacity: 1;
+    //     border-color: $gray;
+    //     background-color: transparent;
+    //     color: $gray;
+    //     cursor: not-allowed !important;
+    //     // hover, focus
+    //     @include hocus {
+    //         background-color: $white--dark;
+    //         color: $gray;
+    //         &::after {
+    //             display: none;
+    //         }
+    //     }
+    // }
 }
 
 /**
