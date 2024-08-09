@@ -76,7 +76,7 @@ body {
     }
 
     .t-post & {
-        background-color: var(--bg-color);
+        background-color: var(--bg-color, $white);
         // background-image: url("/wp-content/themes/onemohrtime/assets/img/asfalt-dark.png");
         // background-image: url("/wp-content/themes/onemohrtime/assets/img/billie-holiday.png");
         // background-image: url("/wp-content/themes/onemohrtime/assets/img/cardboard.png");

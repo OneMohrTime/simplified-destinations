@@ -14,8 +14,8 @@
     color: $white;
 
     .t-post & {
-        background-color: var(--bg-color);
-        color: var(--primary-color);
+        background-color: var(--bg-color, $white--dark);
+        color: var(--primary-color, $black--light);
         z-index: 1;
     }
 
@@ -103,9 +103,9 @@
     padding: $gutter-sm $gutter;
     opacity: 1;
     background-color: $black--light;
-    background-color: var(--primary-color);
+    background-color: var(--primary-color, $black--light);
     color: $white;
-    color: var(--bg-color);
+    color: var(--bg-color, $white);
     visibility: visible;
     z-index: 1;
 

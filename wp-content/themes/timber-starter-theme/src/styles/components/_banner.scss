@@ -54,17 +54,17 @@
  * === LOCATION BANNER ===
  */
 .c-banner.is-location {
-    background-color: var(--bg-color);
-    color: var(--primary-color);
+    background-color: var(--bg-color, $white--dark);
+    color: var(--primary-color, $black--light);
 
     .c-banner__title {
         font-weight: $font-heavy;
-        color: var(--primary-color);
+        color: var(--primary-color, $black--light);
     }
 
     .c-banner__subtitle {
         font-weight: $font-bold;
-        color: var(--secondary-color);
+        color: var(--secondary-color, $white--dark);
     }
 
     .u-stretch-text {
