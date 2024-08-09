@@ -12,7 +12,7 @@
 
 <nav class="c-navigation">
 
-    <a href="{{ this.siteUrl }}" id="logo" class="c-navigation__logo">
+    <a href="{{ this.siteUrl }}" id="logo" class="c-navigation__logo" style="display: none;">
         {% if this.logo is defined and this.logo is not empty %}
         <img src="{{ this.logo }}" alt="{{ this.siteName }} logo" class="c-media__image" />
         {% else %}
@@ -20,7 +20,7 @@
         {% endif %}
     </a>
 
-    <div class="c-navigation__toggle">
+    <div class="c-navigation__toggle" style="display: none;">
         <button class="c-hamburger" data-toggle-menu>
             <span class="c-hamburger__line"></span>
             <span class="c-hamburger__line"></span>
@@ -29,7 +29,7 @@
     </div>
 
     {% if this.menu %}
-    <ul class="c-navigation__menu c-menu is-hidden">
+    <ul class="c-navigation__menu c-menu">
 
         {% for item in this.menu.get_items %}
         <li class="c-navigation__menuItem c-menuItem">
@@ -64,14 +64,12 @@
         {% endfor %}
 
         {% if this.categories %}
-        <li class="c-navigation__menuItem c-menuItem">
+        <li class="c-navigation__menuItem c-menuItem has-dropdown">
             <a href="javscript:;" class="u-link">Locations</a>
-            <ul class="c-submenu">
+            <ul class="c-submenu is-hidden">
                 {% for submenu in this.categories %}
                     <li class="c-submenu__item">
-                        <a href="{{ submenu.link }}" class="u-link">
-                            {{ submenu.title }}
-                        </a>
+                        <a href="{{ submenu.link }}" class="u-link">{{ submenu.title }}</a>
                     </li>
                 {% endfor %}
                 <li class="c-submenu__item">

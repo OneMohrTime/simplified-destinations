@@ -12,11 +12,7 @@
 
         {% for item in this.menu.get_items %}
             <li class="c-utility__menuItem c-menuItem">
-
-                <a href="{{ item.get_link }}" class="u-link">
-                    {{ item.title }}
-                </a>
-
+                <a href="{{ item.get_link }}" class="u-link">{{ item.title }}</a>
             </li>
         {% endfor %}
 
