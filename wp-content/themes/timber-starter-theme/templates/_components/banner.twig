@@ -80,7 +80,8 @@
                 {% include '_elements/picture.twig' with {
                     params: {
                         src: renderedImage,
-                        ratio: (this.address or this.logo) ? '16:9' : '4:3'
+                        ratio: (this.type == 'location') ? '1:1' : '4:3',
+                        classes: (this.type == 'location') ? 'is-contained'
                     }
                 } only %}
             {% endif %}

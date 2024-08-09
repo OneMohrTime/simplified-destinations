@@ -51,6 +51,54 @@
 }
 
 /**
+ * === LOCATION BANNER ===
+ */
+.c-banner.is-location {
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+
+    .c-banner__title {
+        font-weight: $font-heavy;
+        color: var(--primary-color);
+    }
+
+    .c-banner__subtitle {
+        font-weight: $font-bold;
+        color: var(--secondary-color);
+    }
+
+    .u-stretch-text {
+        margin: 0;
+        font-weight: inherit;
+        line-height: 1em;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: $gutter;
+
+        .c-banner__title,
+        .c-banner__subtitle {
+            flex: 1 1 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .c-banner__text,
+        .c-banner__media {
+            flex: 0 1 50%;
+            max-width: calc(50% - $gutter-sm);
+        }
+
+        .c-banner__text {
+            font-size: $font-base-lg;
+        }
+    }
+}
+
+/**
  * === SWIPER SLIDES ===
  */
 .c-banner.is-slides {
@@ -85,21 +133,6 @@
         align-items: flex-start;
     }
 
-    // Video Banner
-    .c-banner.is-video & {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        width: 100%;
-        height: 100%;
-        padding: $gutter;
-        z-index: 1;
-    }
-
     // Slideshow Banner
     .c-banner.is-slides & {
         flex: 0 1 50%;
@@ -123,9 +156,7 @@
     position: relative;
 
     // Default Banner
-    .c-banner.is-default &,
-    // Video Banner
-    .c-banner.is-video & {
+    .c-banner.is-default {
         position: absolute;
         top: 0;
         left: 0;

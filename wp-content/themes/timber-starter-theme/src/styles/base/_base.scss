@@ -22,6 +22,7 @@ body {
     // font-size: clamp(100%, 1rem + 2vw, 1.33em);
     font-size: 1em;
     background-color: $white--darker;
+    background-image: url("/wp-content/themes/onemohrtime/assets/img/asfalt-dark.png");
     color: $black;
 
     // crisp typography rendering
@@ -72,5 +73,16 @@ body {
 
     @include media(">=big") {
         flex: 1 0 auto;
+    }
+
+    .t-post & {
+        background-color: var(--bg-color);
+        // background-image: url("/wp-content/themes/onemohrtime/assets/img/asfalt-dark.png");
+        // background-image: url("/wp-content/themes/onemohrtime/assets/img/billie-holiday.png");
+        // background-image: url("/wp-content/themes/onemohrtime/assets/img/cardboard.png");
+        background-image: url("/wp-content/themes/onemohrtime/assets/img/noisy.png");
+        background-repeat: repeat;
+        // background-blend-mode: multiply;
+        padding-bottom: 0;
     }
 }
