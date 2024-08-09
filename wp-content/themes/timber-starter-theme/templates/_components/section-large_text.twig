@@ -1,0 +1,13 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    text: params.section|default(null)
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.text %}
+<div class="c-content">
+    <h2 class="u-stretch-text" data-module-fitty>{{ this.text.headline }}</h2>
+</div>
+{% endif %}

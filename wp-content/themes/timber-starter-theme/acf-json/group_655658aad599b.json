@@ -348,6 +348,46 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_66b63b5eb9978",
+                            "label": "Headline",
+                            "name": "headline",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_66b63b99b997a",
+                            "label": "Body Copy",
+                            "name": "body",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
                             "key": "field_655e5ac046601",
                             "label": "Images",
                             "name": "images",
@@ -524,42 +564,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_655682341c0f8": {
-                    "key": "layout_655682341c0f8",
-                    "name": "form_embed",
-                    "label": "Form Embed",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_655682371c0fa",
-                            "label": "Form",
-                            "name": "form",
-                            "aria-label": "",
-                            "type": "post_object",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "post_type": [
-                                "wpforms"
-                            ],
-                            "post_status": "",
-                            "taxonomy": "",
-                            "return_format": "id",
-                            "multiple": 0,
-                            "allow_null": 0,
-                            "bidirectional": 0,
-                            "ui": 1,
-                            "bidirectional_target": []
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_6556612f78fa4": {
                     "key": "layout_6556612f78fa4",
                     "name": "script_embed",
@@ -601,13 +605,6 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
                 "value": "page"
             }
         ]
@@ -621,5 +618,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1718860992
+    "modified": 1723218865
 }

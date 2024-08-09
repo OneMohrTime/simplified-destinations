@@ -1,11 +1,6 @@
 {# -- Partial Variables -- #}
 {# ----------------------------------------------------------------- #}
 {% set this = {
-    hideCTA: params.cta,
-    headline: params.headline|default(null),
-    text: params.text|default(null),
-    btn1: params.btn1|default(null),
-    btn2: params.btn2|default(null),
     siteLogo: params.siteLogo,
     social: params.social,
     navigation: params.menu,
@@ -16,18 +11,6 @@
 {# -- Partial Template -- #}
 {# ----------------------------------------------------------------- #}
 <footer class="o-site__footer">
-
-    {# -- Call to Action -- #}
-    {% if this.hideCTA != true %}
-        {% include '_components/cta.twig' with {
-            params: {
-                headline: this.headline,
-                text: this.text,
-                btn1: params.btn1,
-                btn2: params.btn2,
-            }
-        } only %}
-    {% endif %}
 
     {# -- Footer -- #}
     <div id="colophon" class="c-footer">
@@ -54,7 +37,7 @@
                     {% set profile = profile.account %}
                     <li class="c-footer__social-profile">
                         <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
-                            {{ source('_components/svg/social-' ~ profile.title ~ '.twig') }}
+                            {{ source('_elements/svg/social-' ~ profile.title ~ '.twig') }}
                         </a>
                     </li>
                 {% endfor %}

@@ -10,8 +10,8 @@
 {% set bannerImages = post.meta('banner_images')|default(null) %}
 {% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
 {% set bannerType = post.meta('banner_type')|default('default') %}
-{% set button = post.meta('banner_button')|default(null) %}
-{% set pageBuilder = post.meta('section_builder')|default(null) %}
+{% set buttons = post.meta('external_links')|default(null) %}
+{% set footerImage = post.meta('footer_photo')|default(null) %}
 
 {# -- Page Template -- #}
 {# ----------------------------------------------------------------- #}
@@ -27,32 +27,34 @@
                 image: get_image(bannerImage),
                 images: bannerImages,
                 video: bannerVideo,
-                button: button
+                buttons: buttons,
+                content: post.content
             }
         } only %}
-
-        {% if post.content is not empty %}
-            <section class="c-article">
-                <div class="u-wysiwyg">
-                    {{ post.content }}
-                </div>
-            </section>
-        {% endif %}
-
-        {% include '_partials/page-builder.twig' with {
-            params: {
-                sections: pageBuilder
-            }
-        } only %}
-
 
     </article>
 
-    {# Sidebar #}
-    {% include '_partials/sidebar.twig' with {
-        params: {
-            widgets: sidebar
-        }
-    } only %}
+    <aside class="o-sidebar">
+        <div class="o-sidebar__content">
+            <h2 class="u-subheadline">Artprize Entry</h2>
+            {{ source('_elements/svg/qr.svg') }}
+            <p>Enjoying this series? Scan this QR Code to vote for the entry on the Artprize app!</p>
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: 'javascript:void(0);',
+                    text: 'Vote For Entry',
+                    target: '_blank'
+                }
+            } only %}
+        </div>
+        {% if footerImage %}
+            {% include '_components/image.twig' with {
+                params: {
+                    src: footerImage,
+                    classes: 'is-parallax'
+                }
+            } only %}
+        {% endif %}
+    </aside>
 
 {% endblock %}

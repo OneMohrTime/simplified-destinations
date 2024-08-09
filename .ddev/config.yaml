@@ -1,4 +1,4 @@
-name: timber-wordpress
+name: simplified-destinations
 type: wordpress
 docroot: ""
 php_version: "8.1"

@@ -1,6 +1,8 @@
 {# -- Component Variables -- #}
 
 {% set this = {
+    headline: params.section.headline|default(null),
+    body: params.section.body|default(null),
     images: params.section.images|default(null)
 } %}
 
@@ -8,6 +10,18 @@
 
 {% if this.images %}
 <figure class="c-gallery" data-module-fancybox>
+
+    {% if this.headline or this.body %}
+    <div class="u-wysiwyg">
+        <h2 id="{{ this.headline|sanitize }}" class="u-headline">{{ this.headline }}</h2>
+        {% if this.body %}
+            <div class="u-wysiwyg">
+                {{ this.body }}
+            </div>
+        {% endif %}
+    </div>
+    {% endif %}
+
     {# Slider main container #}
     <div class="swiper is-gallery" data-module-swiper>
 

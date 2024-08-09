@@ -47,6 +47,7 @@
     "bourbon": "^7.3.0",
     "css-reset-and-normalize": "^2.3.6",
     "family.scss": "^1.0.8",
+    "fitty": "^2.4.2",
     "include-media": "^2.0.0",
     "modujs": "^1.4.2",
     "modularload": "^1.2.8",

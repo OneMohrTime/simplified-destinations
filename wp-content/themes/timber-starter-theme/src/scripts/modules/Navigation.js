@@ -30,8 +30,8 @@ export default class extends es6Module {
     // Vars
     this.header     = this.el;
     this.navigation = this.header.querySelector('.c-navigation');
-    this.menu       = this.header.querySelector('.c-navigation__menu');
-    this.toggleMenu = this.header.querySelector('.c-navigation__toggle');
+    this.menu       = this.header.querySelector('.c-submenu');
+    this.toggleMenu = this.header.querySelector('.has-dropdown');
 
     // Function to handle scroll events
     this.handleScroll();
@@ -117,7 +117,7 @@ export default class extends es6Module {
   // Toggle Primary Nav
   // =========================================================================
   togglePrimaryNav() {
-    // Find sit elements
+    // Find site elements
     const siteContainer = html.querySelector('.o-site');
 
     // Set classes to "open"

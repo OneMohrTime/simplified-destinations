@@ -1,6 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/img/asfalt-dark.png": "/img/asfalt-dark.png",
+    "/img/billie-holiday.png": "/img/billie-holiday.png",
+    "/img/cardboard.png": "/img/cardboard.png",
     "/img/icons/arrow-left.svg": "/img/icons/arrow-left.svg",
     "/img/icons/arrow-right.svg": "/img/icons/arrow-right.svg",
     "/img/icons/left-quote.svg": "/img/icons/left-quote.svg",
@@ -22,6 +25,7 @@
     "/img/icons/post-standard.svg": "/img/icons/post-standard.svg",
     "/img/icons/post-video.svg": "/img/icons/post-video.svg",
     "/img/logo.svg": "/img/logo.svg",
+    "/img/noisy.png": "/img/noisy.png",
     "/img/placeholder.jpg": "/img/placeholder.jpg",
     "/img/transparent.png": "/img/transparent.png"
 }

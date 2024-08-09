@@ -4,14 +4,15 @@
     menu: navMenu,
     siteName: params.siteName,
     siteUrl: params.siteUrl,
-    logo: params.logo
+    logo: params.logo,
+    categories: params.categories
 } %}
 
 {# -- Component Template -- #}
 
 <nav class="c-navigation">
 
-    <a href="{{ this.siteUrl }}" id="logo" class="c-navigation__logo">
+    <a href="{{ this.siteUrl }}" id="logo" class="c-navigation__logo" style="display: none;">
         {% if this.logo is defined and this.logo is not empty %}
         <img src="{{ this.logo }}" alt="{{ this.siteName }} logo" class="c-media__image" />
         {% else %}
@@ -19,7 +20,7 @@
         {% endif %}
     </a>
 
-    <div class="c-navigation__toggle">
+    <div class="c-navigation__toggle" style="display: none;">
         <button class="c-hamburger" data-toggle-menu>
             <span class="c-hamburger__line"></span>
             <span class="c-hamburger__line"></span>
@@ -28,7 +29,7 @@
     </div>
 
     {% if this.menu %}
-    <ul class="c-navigation__menu c-menu is-hidden">
+    <ul class="c-navigation__menu c-menu">
 
         {% for item in this.menu.get_items %}
         <li class="c-navigation__menuItem c-menuItem">
@@ -62,24 +63,23 @@
         </li>
         {% endfor %}
 
-    </ul>
-    {% endif %}
-
-    {% if this.buttons %}
-        <ul class="c-navigation__buttons">
-            {% for button in this.buttons %}
-                <li>
-                    {% include '_elements/button.twig' with {
-                        params: {
-                            url: button.button.url,
-                            text: button.button.title,
-                            target: button.button.target,
-                            primary: loop.index == loop.length ? true : false
-                        }
-                    } only %}
+        {% if this.categories %}
+        <li class="c-navigation__menuItem c-menuItem has-dropdown">
+            <a href="javascript:void(0);" class="u-link">Locations</a>
+            <ul class="c-submenu is-hidden">
+                {% for submenu in this.categories %}
+                    <li class="c-submenu__item">
+                        <a href="{{ submenu.link }}" class="u-link">{{ submenu.title }}</a>
+                    </li>
+                {% endfor %}
+                <li class="c-submenu__item">
+                    <a href="{{ this.siteUrl }}#locations" class="u-link">View All</a>
                 </li>
-            {% endfor %}
-        </ul>
+            </ul>
+        </li>
+        {% endif %}
+
+    </ul>
     {% endif %}
 
 </nav>
