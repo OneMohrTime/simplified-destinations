@@ -10,7 +10,7 @@
 {% set bannerImages = post.meta('banner_images')|default(null) %}
 {% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
 {% set bannerType = post.meta('banner_type')|default('default') %}
-{% set button = post.meta('banner_button')|default(null) %}
+{% set buttons = post.meta('external_links')|default(null) %}
 {% set footerImage = post.meta('footer_photo')|default(null) %}
 
 {# -- Page Template -- #}
@@ -27,7 +27,7 @@
                 image: get_image(bannerImage),
                 images: bannerImages,
                 video: bannerVideo,
-                button: button,
+                buttons: buttons,
                 content: post.content
             }
         } only %}
@@ -37,8 +37,15 @@
     <aside class="o-sidebar">
         <div class="o-sidebar__content">
             <h2 class="u-subheadline">Artprize Entry</h2>
-            <code>QR Code</code>
+            {{ source('_elements/svg/qr.svg') }}
             <p>Enjoying this series? Scan this QR Code to vote for the entry on the Artprize app!</p>
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: 'javascript:void(0);',
+                    text: 'Vote For Entry',
+                    target: '_blank'
+                }
+            } only %}
         </div>
         {% if footerImage %}
             {% include '_components/image.twig' with {

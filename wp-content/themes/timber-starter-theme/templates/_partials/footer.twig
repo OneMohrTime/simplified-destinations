@@ -37,7 +37,7 @@
                     {% set profile = profile.account %}
                     <li class="c-footer__social-profile">
                         <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
-                            {{ source('_components/svg/social-' ~ profile.title ~ '.twig') }}
+                            {{ source('_elements/svg/social-' ~ profile.title ~ '.twig') }}
                         </a>
                     </li>
                 {% endfor %}

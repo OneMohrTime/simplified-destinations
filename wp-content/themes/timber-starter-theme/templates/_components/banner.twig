@@ -7,7 +7,7 @@
     image: params.image|default(null),
     images: params.images|default(null),
     video: params.video|default(null),
-    button: params.button|default(null),
+    buttons: params.buttons|default(null),
     content: params.content|default(null)
 } %}
 
@@ -37,14 +37,20 @@
             </div>
         {% endif %}
 
-        {% if this.button %}
-            {% include '_elements/button.twig' with {
-                params: {
-                    url: this.button.url,
-                    text: this.button.title,
-                    target: this.button.target
-                }
-            } only %}
+        {% if this.buttons %}
+            <div class="c-button-group">
+                <h2 class="is-h4">My Experiences</h2>
+                <p>If you're interested in more reading, I've written about my experiences here!</p>
+                {% for button in this.buttons %}
+                    {% include '_elements/button.twig' with {
+                        params: {
+                            url: button.link.url,
+                            text: button.link.title,
+                            target: button.link.target
+                        }
+                    } only %}
+                {% endfor %}
+            </div>
         {% endif %}
     </div>
 

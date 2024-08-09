@@ -65,7 +65,7 @@
 
         {% if this.categories %}
         <li class="c-navigation__menuItem c-menuItem has-dropdown">
-            <a href="javscript:;" class="u-link">Locations</a>
+            <a href="javascript:void(0);" class="u-link">Locations</a>
             <ul class="c-submenu is-hidden">
                 {% for submenu in this.categories %}
                     <li class="c-submenu__item">
@@ -73,7 +73,7 @@
                     </li>
                 {% endfor %}
                 <li class="c-submenu__item">
-                    <a href="/locations" class="u-link">View All</a>
+                    <a href="{{ this.siteUrl }}#locations" class="u-link">View All</a>
                 </li>
             </ul>
         </li>

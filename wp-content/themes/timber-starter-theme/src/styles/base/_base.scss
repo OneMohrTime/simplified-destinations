@@ -22,7 +22,7 @@ body {
     // font-size: clamp(100%, 1rem + 2vw, 1.33em);
     font-size: 1em;
     background-color: $white--darker;
-    background-image: url("/wp-content/themes/onemohrtime/assets/img/asfalt-dark.png");
+    background-image: url("/wp-content/themes/timber-starter-theme/assets/img/asfalt-dark.png");
     color: $black;
 
     // crisp typography rendering
@@ -47,6 +47,7 @@ body {
     margin: 0;
     padding: 0;
     transition: $speed linear;
+    background-color: var(--bg-color, $white);
 
     @include media(">=small") {
         &.-activeNavigationAreaUpTopButNotWhenScrolling {}
@@ -68,7 +69,7 @@ body {
 .o-site__main {
     position: relative;
     padding-bottom: $gutter;
-    background-color: $white;
+    // background-color: $white;
     color: $black;
 
     @include media(">=big") {
@@ -76,11 +77,12 @@ body {
     }
 
     .t-post & {
-        background-color: var(--bg-color, $white);
-        // background-image: url("/wp-content/themes/onemohrtime/assets/img/asfalt-dark.png");
-        // background-image: url("/wp-content/themes/onemohrtime/assets/img/billie-holiday.png");
-        // background-image: url("/wp-content/themes/onemohrtime/assets/img/cardboard.png");
-        background-image: url("/wp-content/themes/onemohrtime/assets/img/noisy.png");
+        background: var(--bg-color, $white) url("/wp-content/themes/timber-starter-theme/assets/img/asfalt-dark.png") !important;
+        // background-color: var(--bg-color, $white);
+        // background-image: url("/wp-content/themes/timber-starter-theme/assets/img/asfalt-dark.png");
+        // background-image: url("/wp-content/themes/timber-starter-theme/assets/img/billie-holiday.png");
+        // background-image: url("/wp-content/themes/timber-starter-theme/assets/img/cardboard.png");
+        // background-image: url("/wp-content/themes/timber-starter-theme/assets/img/noisy.png");
         background-repeat: repeat;
         // background-blend-mode: multiply;
         padding-bottom: 0;
