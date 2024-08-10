@@ -4,7 +4,6 @@
 
 .t-post {
 
-    // Amsterdam, The Netherlands
     &.is-amsterdam {
         --primary-color: #1b4f76;
         --secondary-color: #f26a37;
@@ -12,12 +11,114 @@
         --bg-color: #e8f4fc;
     }
 
-    // Barcelona, Spain
-    &.is-barcelona {
+    &.is-barcelona,
+    &.is-madrid,
+    &.is-valencia {
         --primary-color: #dc1c1a;
         --secondary-color: #086787;
         --tertiary-color: #efc708;
         --bg-color: #fff7ea;
+    }
+
+    &.is-belfast {
+        --primary-color: #363231;
+        --secondary-color: #72aacb;
+        --tertiary-color: #c4c0bf;
+        --bg-color: #d4dbce;
+    }
+
+    &.is-budapest {
+        --primary-color: #5b5f97;
+        --secondary-color: #ff6b6c;
+        --tertiary-color: #ffc145;
+        --bg-color: #f9fbf7;
+    }
+
+    &.is-copenhagen {
+        --primary-color: #405263;
+        --secondary-color: #ff8490;
+        --tertiary-color: #ffdf91;
+        --bg-color: #fff0e6;
+    }
+
+    &.is-dublin,
+    &.is-connemara,
+    &.is-galway {
+        --primary-color: #283618;
+        --secondary-color: #c8864c;
+        --tertiary-color: #606c38;
+        --bg-color: #fefae0;
+    }
+
+    &.is-edinburgh,
+    &.is-glasgow,
+    &.is-isle-of-skye {
+        --primary-color: #161b1f;
+        --secondary-color: #6796c5;
+        --tertiary-color: #5d7383;
+        --bg-color: #fffefa;
+    }
+
+    &.is-kyoto,
+    &.is-tokyo,
+    &.is-nara,
+    &.is-suwa,
+    &.is-osaka {
+        --primary-color: #f00001;
+        --secondary-color: #20259f;
+        --tertiary-color: #ffbe00;
+        --bg-color: #f9e6d3;
+    }
+
+    &.is-lisbon {
+        --primary-color: #b1140b;
+        --secondary-color: #ffd231;
+        --tertiary-color: #aed4eb;
+        --bg-color: #f7e9cc;
+    }
+
+    &.is-marrakesh,
+    &.is-sahara {
+        --primary-color: #704322;
+        --secondary-color: #ca975e;
+        --tertiary-color: #55af89;
+        --bg-color: #fff4e1;
+    }
+
+    &.is-munich {
+        --primary-color: #ad343e;
+        --secondary-color: #f2af29;
+        --tertiary-color: #474747;
+        --bg-color: #e0e0ce;
+    }
+
+    &.is-paris {
+        --primary-color: #5b2e30;
+        --secondary-color: #a2c3a6;
+        --tertiary-color: #dbcd95;
+        --bg-color: #e8deb5;
+    }
+
+    &.is-prague {
+        --primary-color: #515a47;
+        --secondary-color: #d7be82;
+        --tertiary-color: #755c1b;
+        --bg-color: #f7f0e2;
+    }
+
+    &.is-reykjavik,
+    &.is-skeidararjokull {
+        --primary-color: #274c77;
+        --secondary-color: #6096ba;
+        --tertiary-color: #a3cef1;
+        --bg-color: #e7ecef;
+    }
+
+    &.is-seoul {
+        --primary-color: #293380;
+        --secondary-color: #953d60;
+        --tertiary-color: #869fde;
+        --bg-color: #f0eff7;
     }
 
 }
