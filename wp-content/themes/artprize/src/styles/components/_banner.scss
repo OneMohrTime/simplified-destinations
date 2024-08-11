@@ -55,7 +55,7 @@
  */
 .c-banner.is-location {
     background-color: var(--bg-color, $white--dark);
-    background-image: url("/wp-content/themes/timber-starter-theme/assets/img/asfalt-dark.png");
+    background-image: url("/wp-content/themes/artprize/assets/img/asfalt-dark.png");
     background-repeat: repeat;
     background-blend-mode: multiply;
     color: var(--primary-color, $black--light);
@@ -74,7 +74,7 @@
         margin-top: $gutter-xl;
         padding: $gutter-sm;
         background-color: var(--primary-color, $black--light);
-        background-image: url("/wp-content/themes/timber-starter-theme/assets/img/cardboard.png");
+        background-image: url("/wp-content/themes/artprize/assets/img/cardboard.png");
         background-blend-mode: multiply;
         color: var(--bg-color, $white--dark);
 
@@ -175,7 +175,7 @@
 
 .c-banner__media {
     position: relative;
-    // background-image: url("/wp-content/themes/timber-starter-theme/assets/img/noisy.png");
+    // background-image: url("/wp-content/themes/artprize/assets/img/noisy.png");
     // background-blend-mode: multiply;
 
     // Default Banner
