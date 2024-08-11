@@ -77,14 +77,6 @@ body {
     }
 
     .t-post & {
-        background: var(--bg-color, $white) url("/wp-content/themes/timber-starter-theme/assets/img/asfalt-dark.png") !important;
-        // background-color: var(--bg-color, $white);
-        // background-image: url("/wp-content/themes/timber-starter-theme/assets/img/asfalt-dark.png");
-        // background-image: url("/wp-content/themes/timber-starter-theme/assets/img/billie-holiday.png");
-        // background-image: url("/wp-content/themes/timber-starter-theme/assets/img/cardboard.png");
-        // background-image: url("/wp-content/themes/timber-starter-theme/assets/img/noisy.png");
-        background-repeat: repeat;
-        // background-blend-mode: multiply;
         padding-bottom: 0;
     }
 }

@@ -55,6 +55,9 @@
  */
 .c-banner.is-location {
     background-color: var(--bg-color, $white--dark);
+    background-image: url("/wp-content/themes/timber-starter-theme/assets/img/asfalt-dark.png");
+    background-repeat: repeat;
+    background-blend-mode: multiply;
     color: var(--primary-color, $black--light);
 
     .c-banner__title {
