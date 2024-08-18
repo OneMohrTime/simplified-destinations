@@ -12,11 +12,14 @@
     padding: $gutter-sm $gutter;
     background-color: $black;
     color: $white;
+    background-color: var(--bg-color, $black);
+    color: var(--primary-color, $white);
+    z-index: 1;
 
     .t-post & {
-        background-color: var(--bg-color, $white--dark);
-        color: var(--primary-color, $black--light);
-        z-index: 1;
+        background-image: url("/wp-content/themes/artprize/assets/img/noisy.png");
+        background-repeat: repeat;
+        background-blend-mode: multiply;
     }
 
     // screen at or above 900px

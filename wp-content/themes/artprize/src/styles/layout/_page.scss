@@ -6,6 +6,10 @@
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 100%;
+    background-color: var(--bg-color, $white--dark);
+    background-image: url("/wp-content/themes/artprize/assets/img/noisy.png");
+    background-repeat: repeat;
+    background-blend-mode: multiply;
 }
 
 .o-page__sections {

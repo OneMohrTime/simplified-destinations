@@ -7,7 +7,6 @@
     margin-bottom: $gutter;
     padding-left: $gutter;
     padding-right: $gutter;
-    background-color: $white--dark;
 
     // screen at or above 600px
     @include media(">=small") {}
@@ -54,10 +53,11 @@
  * === LOCATION BANNER ===
  */
 .c-banner.is-location {
-    background-color: var(--bg-color, $white--dark);
-    background-image: url("/wp-content/themes/artprize/assets/img/asfalt-dark.png");
-    background-repeat: repeat;
-    background-blend-mode: multiply;
+    @include padding();
+    // background-color: var(--bg-color, $white--dark);
+    // background-image: url("/wp-content/themes/artprize/assets/img/noisy.png");
+    // background-repeat: repeat;
+    // background-blend-mode: multiply;
     color: var(--primary-color, $black--light);
 
     .c-banner__title {
@@ -115,6 +115,16 @@
 
         .c-banner__text {
             font-size: $font-base-lg;
+        }
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        column-gap: $gutter-lg;
+
+        .c-banner__text,
+        .c-banner__media {
+            max-width: calc(50% - $gutter);
         }
     }
 }
