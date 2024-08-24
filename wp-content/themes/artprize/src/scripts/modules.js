@@ -11,5 +11,5 @@ export { default as Fancybox } from './modules/Fancybox';
 export { default as Fitty } from './modules/Fitty';
 // export { default as Load } from './modules/Load';
 export { default as Navigation } from './modules/Navigation';
-// export { default as Scroll } from './modules/Scroll';
+export { default as Scroll } from './modules/Scroll';
 export { default as Swiper } from './modules/Swiper';
