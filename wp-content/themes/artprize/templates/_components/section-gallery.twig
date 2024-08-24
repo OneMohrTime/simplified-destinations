@@ -13,9 +13,9 @@
 
     {% if this.headline or this.body %}
     <div class="u-wysiwyg">
-        <h2 id="{{ this.headline|sanitize }}" class="u-headline">{{ this.headline }}</h2>
+        <h2 id="{{ this.headline|sanitize }}" class="u-headline" data-scroll-trigger>{{ this.headline }}</h2>
         {% if this.body %}
-            <div class="u-wysiwyg">
+            <div class="u-wysiwyg" data-scroll-trigger>
                 {{ this.body }}
             </div>
         {% endif %}

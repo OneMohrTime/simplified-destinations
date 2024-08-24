@@ -14,10 +14,12 @@
 
     <div class="c-textMedia__text u-wysiwyg">
         {% if text.headline %}
-            <h3 class="u-subheadline">{{ text.headline }}</h3>
+            <h3 class="u-subheadline" data-scroll-trigger>{{ text.headline }}</h3>
         {% endif %}
         {% if text.body %}
-            {{ text.body }}
+            <div class="u-wysiwyg" data-scroll-trigger>
+                {{ text.body }}
+            </div>
         {% endif %}
         {% if text.button %}
             {% include '_elements/button.twig' with {
@@ -31,7 +33,7 @@
         {% endif %}
     </div>
 
-    <figure class="c-textMedia__media">
+    <figure class="c-textMedia__media" data-scroll-trigger>
         {% set mediaType = media.media_type %}
 
         {% if mediaType == 'video' %}

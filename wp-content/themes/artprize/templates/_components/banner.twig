@@ -16,7 +16,7 @@
 <section class="c-banner is-{{ this.type }}{% if this.type == 'default' and this.image is empty %} no-image{% endif %}">
 
     {% if this.type == 'location' %}
-        <div class="c-banner__title">
+        <div class="c-banner__title" data-scroll-trigger>
             <h1 class="u-stretch-text" data-module-fitty>{{ this.headline }}</h1>
         </div>
     {% endif %}
@@ -24,21 +24,21 @@
     <div class="c-banner__text">
 
         {% if this.type != 'location' %}
-            <h1 class="u-title">{{ this.headline }}</h1>
+            <h1 class="u-title" data-scroll-trigger>{{ this.headline }}</h1>
         {% endif %}
 
         {% if this.subheadline and this.type != 'location' %}
-            <strong class="u-subheadline">{{ this.subheadline }}</strong>
+            <strong class="u-subheadline" data-scroll-trigger>{{ this.subheadline }}</strong>
         {% endif %}
 
         {% if this.content and this.type == 'location' %}
-            <div class="u-wysiwyg">
+            <div class="u-wysiwyg" data-scroll-trigger>
                 {{ this.content }}
             </div>
         {% endif %}
 
         {% if this.buttons %}
-            <div class="c-button-group">
+            <div class="c-button-group" data-scroll-trigger>
                 <h2 class="is-h4">My Experiences</h2>
                 <p>If you're interested in more reading, I've written about my experiences here!</p>
                 {% for button in this.buttons %}
@@ -54,7 +54,7 @@
         {% endif %}
     </div>
 
-    <figure class="c-banner__media">
+    <figure class="c-banner__media" data-scroll-trigger>
 
         {% if this.type == 'slides' %}
             <div class="swiper is-cards" data-module-swiper>
@@ -96,7 +96,7 @@
     </figure>
 
     {% if this.subheadline and this.type == 'location' %}
-        <div class="c-banner__subtitle">
+        <div class="c-banner__subtitle" data-scroll-trigger>
             <strong class="u-stretch-text" data-module-fitty>{{ this.subheadline }}</strong>
         </div>
     {% endif %}

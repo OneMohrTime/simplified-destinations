@@ -17,14 +17,14 @@
     <div id="colophon" class="c-footer">
         <h2 class="u-screen-reader-text">Colophon</h2>
         <div class="c-footer__about">
-            <h3 class="u-subheadline">{{ this.about.headline }}</h3>
-            <div class="u-wysiwyg">
+            <h3 class="u-subheadline" data-scroll-trigger>{{ this.about.headline }}</h3>
+            <div class="u-wysiwyg" data-scroll-trigger>
                 {{ this.about.body }}
             </div>
             <ul class="c-menu c-footer__social">
                 {% for profile in this.social %}
                     {% set profile = profile.profile %}
-                    <li class="c-menuItem c-footer__social-profile">
+                    <li class="c-menuItem c-footer__social-profile" data-scroll-trigger>
                         <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
                             {{ source('_elements/svg/social-' ~ profile.title|lower ~ '.svg') }}
                         </a>

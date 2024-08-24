@@ -11,9 +11,9 @@
 
     {% if this.testimonials.headline or this.testimonials.body %}
     <div class="u-wysiwyg">
-        <h2 class="u-headline">{{ this.testimonials.headline }}</h2>
+        <h2 class="u-headline" data-scroll-trigger>{{ this.testimonials.headline }}</h2>
         {% if this.testimonials.body %}
-            <div class="u-wysiwyg">
+            <div class="u-wysiwyg" data-scroll-trigger>
                 {{ this.testimonials.body }}
             </div>
         {% endif %}
