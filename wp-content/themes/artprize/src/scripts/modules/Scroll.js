@@ -39,7 +39,7 @@ export default class extends es6Module {
       // Initial state
       gsap.fromTo(el, {
           opacity: 0,
-          y: 50
+          y: 36
         }, {
           opacity: 1,
           y: 0,
