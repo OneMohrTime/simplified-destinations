@@ -13,4 +13,4 @@ export { default as Fitty } from './modules/Fitty';
 export { default as Navigation } from './modules/Navigation';
 export { default as Scroll } from './modules/Scroll';
 export { default as Swiper } from './modules/Swiper';
-export { default as Transitions } from './modules/Transitions';
+// export { default as Transitions } from './modules/Transitions';

@@ -20,6 +20,9 @@ export default class extends es6Module {
   // Init module
   // =========================================================================
   init() {
+    // Animate transition in when the page loads
+    this.transitionIn();
+
     // Attach event listeners to internal links
     this.$links = document.querySelectorAll('a');
 
@@ -29,16 +32,10 @@ export default class extends es6Module {
           event.preventDefault(); // Prevent the default link behavior
 
           // Start the transition out animation
-          this.transitionOut().then(() => {
-            // Navigate to the new page
-            window.location.href = link.href;
-          });
+          this.transitionOut(link.href);
         }
       });
     });
-
-    // Animate transition in when the page loads
-    this.transitionIn();
   }
 
   // Check if a link is internal
@@ -49,17 +46,15 @@ export default class extends es6Module {
 
   // Animate the transition out
   // =========================================================================
-  transitionOut() {
-    return new Promise(resolve => {
-      const page = document.getElementById('page');
-      page.style.transition = 'opacity 0.5s';  // Adjust timing to your needs
-      page.style.opacity = '0';
+  transitionOut(href) {
+    const page = document.getElementById('page');
+    page.style.transition = 'opacity 0.5s'; // Adjust timing to your needs
+    page.style.opacity = '0';
 
-      // Wait for the transition to complete
-      setTimeout(() => {
-        resolve();
-      }, 500);  // Match this to your transition duration
-    });
+    // Wait for the transition to complete before navigating
+    setTimeout(() => {
+      window.location.href = href;
+    }, 500); // Match this to your transition duration
   }
 
   // Animate the transition in
@@ -67,10 +62,11 @@ export default class extends es6Module {
   transitionIn() {
     const page = document.getElementById('page');
     page.style.opacity = '0';
-    page.style.transition = 'opacity 0.5s';  // Adjust timing to your needs
+    page.style.transition = 'opacity 0.5s'; // Adjust timing to your needs
+
     setTimeout(() => {
       page.style.opacity = '1';
-    }, 100);  // Start the fade-in after a short delay
+    }, 100); // Start the fade-in after a short delay
   }
 
   // Destroy
