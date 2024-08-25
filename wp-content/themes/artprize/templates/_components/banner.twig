@@ -55,8 +55,9 @@
     </div>
 
     <figure class="c-banner__media" data-scroll-trigger>
+        {% switch this.type %}
 
-        {% if this.type == 'slides' %}
+            {% case 'slides' %}
             <div class="swiper is-cards" data-module-swiper>
                 {# Additional required wrapper #}
                 <div class="swiper-wrapper">
@@ -80,7 +81,7 @@
                 <button class="swiper-button-next"></button>
             </div>
 
-        {% else %}
+            {% default %}
             {% if this.image is not empty %}
                 {% set renderedImage = get_image(this.image) %}
                 {% include '_elements/picture.twig' with {
@@ -92,7 +93,7 @@
                 } only %}
             {% endif %}
 
-        {% endif %}
+        {% endswitch %}
     </figure>
 
     {% if this.subheadline and this.type == 'location' %}
