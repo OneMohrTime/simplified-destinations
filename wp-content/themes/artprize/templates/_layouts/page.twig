@@ -32,7 +32,7 @@
         } only %}
 
         {% if post.content is not empty %}
-            <section class="c-intro">
+            <section class="c-intro" data-scroll-trigger>
                 <div class="u-wysiwyg">
                     {{ post.content }}
                 </div>
@@ -50,7 +50,7 @@
                 <ul class="c-related-posts">
 
                     {% for child in post.children('page') %}
-                        <li class="c-related-posts__post u-fade-in">
+                        <li class="c-related-posts__post" data-scroll-trigger>
 
                             {% if child.excerpt is defined and child.excerpt is not empty %}
                                 {% set content = child.excerpt %}

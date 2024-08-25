@@ -7,8 +7,18 @@
 // Import dependencies
 // =============================================================================
 import { module as es6Module } from 'modujs';
-import { lazyLoadImage } from '../utils/image';
-import LocomotiveScroll from 'locomotive-scroll';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Register plugins
+// =============================================================================
+gsap.registerPlugin(ScrollTrigger);
+
+// Global ScrollTrigger configuration
+ScrollTrigger.config({
+  limitCallbacks: true,     // Limits the frequency of callbacks to improve performance
+  ignoreMobileResize: true  // Prevents re-calculation of trigger positions on mobile resize
+});
 
 // Set default function and extend it ontop of our imported 'module'
 // =============================================================================
@@ -21,45 +31,29 @@ export default class extends es6Module {
   // Init module
   // ===========================================================================
   init() {
-    this.scroll = new LocomotiveScroll({
-      el: this.el,
-      smooth: true
+    // Select all direct children with the attribute [data-scroll-trigger]
+    const sections = this.el.querySelectorAll('[data-scroll-trigger]');
+
+    // Loop through each section and create a ScrollTrigger for each
+    sections.forEach(el => {
+      // Initial state
+      gsap.fromTo(el, {
+          opacity: 0,
+          y: 36
+        }, {
+          opacity: 1,
+          y: 0,
+          // stagger: 1, // Stagger the animation by 1 seconds for each `el`
+          duration: 0.4, // Equals `$speed-slow` variable
+          scrollTrigger: {
+            trigger: el, // Each section triggers its own animation
+            start: 'top 80%', // Start when the top of the section hits 80% of the viewport height
+            end: 'bottom 20%', // End when the bottom of the section hits 20% of the viewport height
+            toggleActions: 'play none none none' // Play on enter, reverse on leave
+          }
+        }
+      );
     });
-
-    this.scroll.on('call', (func, way, obj, id) => {
-      // Using modularJS
-      this.call(func[0], { way, obj }, func[1], func[2]);
-    });
-
-    this.scroll.on('scroll', (args) => {
-      // console.log(args.scroll);
-    })
   }
 
-  /**
-   * Lazy load the related image.
-   *
-   * @see ../utils/image.js
-   *
-   * It is recommended to wrap your `<img>` into an element with the
-   * CSS class name `.c-lazy`. The CSS class name modifier `.-lazy-loaded`
-   * will be applied on both the image and the parent wrapper.
-   *
-   * ```html
-   * <div class="c-lazy o-ratio u-4:3">
-   *     <img data-scroll data-scroll-call="lazyLoad, Scroll, main" data-src="http://picsum.photos/640/480?v=1" alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
-   * </div>
-   * ```
-   *
-   * @param {LocomotiveScroll} args - The Locomotive Scroll instance.
-   */
-  lazyLoad(args) {
-    lazyLoadImage(args.obj.el, null, () => {
-      //callback
-    })
-  }
-
-  destroy() {
-    this.scroll.destroy();
-  }
 }

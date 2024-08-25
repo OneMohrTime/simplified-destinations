@@ -7,7 +7,7 @@
 {# -- Component Template -- #}
 
 {% if this.image %}
-<div class="c-image">
+<div class="c-image" data-scroll-trigger>
     {% set image = get_image(this.image.image) %}
 
     {% include '_elements/picture.twig' with {

@@ -1,6 +1,7 @@
 <?php
 
 use Timber\Site;
+use buzzingpixel\twigswitch\SwitchTwigExtension;
 
 /**
  * Class StarterSite
@@ -169,9 +170,13 @@ class StarterSite extends Site {
         /**
          * Required when you want to use Twig’s template_from_string.
          * @link https://twig.symfony.com/doc/3.x/functions/template_from_string.html
+         *
+         * $twig->addExtension( new Twig\Extension\StringLoaderExtension() );
+         * $twig->addFilter( new Twig\TwigFilter( 'myfoo', [ $this, 'myfoo' ] ) );
          */
-        // $twig->addExtension( new Twig\Extension\StringLoaderExtension() );
-        // $twig->addFilter( new Twig\TwigFilter( 'myfoo', [ $this, 'myfoo' ] ) );
+
+        // Provide a {% switch %} tag for Twig switch case statements
+        $twig->addExtension(new SwitchTwigExtension());
 
         return $twig;
     }

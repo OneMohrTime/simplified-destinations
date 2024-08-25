@@ -68,15 +68,10 @@ body {
 
 .o-site__main {
     position: relative;
-    padding-bottom: $gutter;
     // background-color: $white;
     color: $black;
 
     @include media(">=big") {
         flex: 1 0 auto;
-    }
-
-    .t-post & {
-        padding-bottom: 0;
     }
 }

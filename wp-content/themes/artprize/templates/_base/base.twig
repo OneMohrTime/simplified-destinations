@@ -27,11 +27,16 @@
 
 {# -- Site Frame -- #}
 {# ----------------------------------------------------------------- #}
-<body class="t-{{ postTypeClass }} {{ postTitleClass }}">
+<body class="t-{{ postTypeClass }} {{ postTitleClass }}" data-module-transitions>
 
     <!-- Start `wp_body_open` Function -->
     {{ function('wp_body_open') }}
     <!-- End `wp_body_open` Function -->
+
+    <!-- Loader Element -->
+    <div id="loader" class="c-loader">
+        <div class="c-loader__spinner"></div>
+    </div>
 
     <div id="page" class="o-site" data-load-container>
 
@@ -64,7 +69,7 @@
         </header>
 
         {# Main Site Content Area #}
-        <main id="main" class="o-site__main{% if hasSidebar %} has-sidebar{% endif %}">
+        <main id="main" class="o-site__main{% if hasSidebar %} has-sidebar{% endif %}" data-module-scroll>
             {% block content %}
                 Sorry, no content
             {% endblock %}
