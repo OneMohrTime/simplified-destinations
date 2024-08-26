@@ -6,8 +6,13 @@
     position: relative;
     padding: $gutter;
     text-align: center;
-    background-color: $black;
-    color: $white;
+    background-color: var(--primary-color, $black);
+    color: var(--bg-color, $white);
+
+    .t-post & {
+        background-image: url("/wp-content/themes/artprize/assets/img/cardboard.png");
+        background-blend-mode: multiply;
+    }
 
     // screen at or above 600px
     @include media(">=small") {
@@ -55,6 +60,15 @@
         }
     }
 
+    .c-footer__social-profile {
+        a {
+            transition: color $speed $bezier-slide;
+            @include hocus {
+                color: var(--secondary-color, $blue);
+            }
+        }
+    }
+
     // Icon size
     .c-media__svg {
         width: 24px;
@@ -63,6 +77,15 @@
 }
 
 .c-footer__form {
+
+    .c-button {
+        background-color: var(--secondary-color, $white--dark);
+        color: var(--bg-color, $black--lighter);
+        @include hocus {
+            color: var(--tertiary-color, $white);
+        }
+    }
+
     // screen at or above 900px
     @include media(">=medium") {
         flex: 0 1 50%;
@@ -84,16 +107,11 @@
         max-width: 100%;
     }
 
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 0.75em;
-    }
-
-    hr {
-        height: 4px;
-        margin: 1.5em auto;
+    .u-link {
+        @include inline-block();
+        z-index: 1;
+        &::before {
+            background-color: var(--tertiary-color, $blue);
+        }
     }
 }
