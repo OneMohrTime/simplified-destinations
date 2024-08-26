@@ -55,7 +55,7 @@
     display: block;
 
     .u-link {
-        display: block;
+        @include inline-block();
     }
 }
 

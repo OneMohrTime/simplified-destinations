@@ -349,26 +349,36 @@
 */
 
 @mixin inline-block() {
+    $bar-size: 4px;
     position: relative;
+    transition: color $speed $bezier-slide;
     text-decoration: none;
 
     &::before {
         content: "";
         position: absolute;
         left: 0;
-        bottom: 3px;
+        bottom: -$bar-size;
         width: 100%;
-        height: 8px;
+        height: $bar-size;
         transition: all $speed $bezier-slide;
         color: var(--secondary-color, inherit);
         background-color: var(--tertiary-color, $blue);
         z-index: -1;
     }
 
-    &:hover {
+    @include hocus {
+        color: var(--secondary-color, inherit);
         &::before {
-            bottom: 0;
-            height: 100%;
+            bottom: -$bar-size;
+            height: calc(100% + ($bar-size * 2));
+        }
+    }
+
+    &:active {
+        color: var(--bg-color, inherit);
+        &::before {
+            background-color: var(--primary-color, $blue);
         }
     }
 
