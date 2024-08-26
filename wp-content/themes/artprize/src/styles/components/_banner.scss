@@ -18,14 +18,6 @@
 
     // screen at or above 1200px
     @include media(">=large") {}
-
-    // Elements
-    .u-title {
-        margin-bottom: 0;
-    }
-    .c-button {
-        margin-top: 1em;
-    }
 }
 
 /**
@@ -133,12 +125,22 @@
  * === SWIPER SLIDES ===
  */
 .c-banner.is-slides {
+    padding-left: 0;
+    padding-right: 0;
 
-    // screen at or above 900px
-    @include media(">=medium") {
+    // screen at or above 600px
+    @include media(">=small") {
         display: flex;
         align-items: center;
-        column-gap: $gutter;
+        column-gap: 0;
+
+        .c-banner__text {
+            max-width: 50%;
+            padding: $gutter-lg;
+        }
+        .c-banner__media {
+            max-width: 50%;
+        }
     }
 }
 
@@ -151,10 +153,18 @@
     margin-bottom: $gutter;
     z-index: 1;
 
+    // Elements
+    .u-title {
+        margin-bottom: 0;
+    }
+    .c-button {
+        margin-top: 1em;
+    }
+
     // screen at or above 900px
-        @include media(">=medium") {
-            margin-bottom: 0;
-        }
+    @include media(">=medium") {
+        margin-bottom: 0;
+    }
 
     // Default Banner
     .c-banner.is-default & {
@@ -167,7 +177,7 @@
     // Slideshow Banner
     .c-banner.is-slides & {
         flex: 0 1 50%;
-        max-width: calc(50% - $gutter-sm);
+        max-width: 50%;
         padding-top: $gutter;
     }
 
@@ -185,8 +195,6 @@
 
 .c-banner__media {
     position: relative;
-    // background-image: url("/wp-content/themes/artprize/assets/img/noisy.png");
-    // background-blend-mode: multiply;
 
     // Default Banner
     .c-banner.is-default {
@@ -201,7 +209,25 @@
     // Slideshow Banner
     .c-banner.is-slides & {
         flex: 0 1 50%;
-        max-width: calc(50% - $gutter-sm);
+        max-width: 50%;
+
+        .swiper-scrollbar.swiper-scrollbar-horizontal {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 12px;
+            border-radius: 0;
+            cursor: grab;
+        }
+
+        .swiper-scrollbar-drag {
+            border-radius: 4px;
+        }
+
+        .c-button {
+            padding: 2em;
+        }
     }
 
     .c-media {

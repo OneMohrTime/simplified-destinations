@@ -28,7 +28,7 @@ import {
   Navigation,
   Pagination,
   // Parallax,
-  // Scrollbar,
+  Scrollbar,
   // Thumbs,
   // Virtual,
   // Zoom
@@ -55,7 +55,7 @@ import 'swiper/scss/effect-creative';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 // import 'swiper/scss/parallax';
-// import 'swiper/scss/scrollbar';
+import 'swiper/scss/scrollbar';
 // import 'swiper/scss/thumbs';
 // import 'swiper/scss/virtual';
 // import 'swiper/scss/zoom';
@@ -214,7 +214,7 @@ export default class extends es6Module {
   createCards() {
     this.params = {
       // configure Swiper to use modules
-      modules: [A11y, Navigation, Pagination],
+      modules: [A11y, Navigation, Scrollbar],
 
       // params
       a11y: {
@@ -228,12 +228,10 @@ export default class extends es6Module {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      pagination: {
-        clickable: true,
-        dynamicBullets: true,
-        dynamicMainBullets: true,
-        el: '.swiper-pagination',
-        type: 'bullets',
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true,
+        snapOnRelease: true,
       },
       rewind: true,
       slidesPerView: 1,
