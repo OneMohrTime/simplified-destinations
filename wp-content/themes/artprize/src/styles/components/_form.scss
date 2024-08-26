@@ -1,0 +1,41 @@
+/* ==========================================================================
+    Forms
+========================================================================== */
+
+.c-form {
+    position: relative;
+}
+
+.c-form__row {
+    display: flex;
+    column-gap: $base-spacing;
+
+    & + & {
+        margin-top: $small-spacing;
+    }
+}
+
+.c-form__item {
+    flex: 1 0 auto;
+
+    input[type="checkbox"] + span {
+        @include base-font-size();
+        line-height: $heading-height;
+    }
+
+    &.is-submit {
+        .c-button {
+        }
+    }
+}
+
+.c-form__label {
+    @include caption();
+    display: block;
+    margin-bottom: $small-spacing
+}
+
+.c-form__input {
+    @include base-font-size();
+    width: 100%;
+}

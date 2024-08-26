@@ -1,0 +1,153 @@
+/* ==========================================================================
+    Primary Navigation
+========================================================================== */
+
+.c-navigation {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: $gutter-sm $gutter;
+    background-color: $black;
+    color: $white;
+    background-color: var(--bg-color, $black);
+    color: var(--primary-color, $white);
+    z-index: 1;
+
+    .t-post & {
+        background-image: url("/wp-content/themes/artprize/assets/img/noisy.png");
+        background-repeat: repeat;
+        background-blend-mode: multiply;
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        flex-wrap: nowrap;
+        overflow: visible;
+    }
+}
+
+/**
+ * === MENU ===
+ */
+
+.c-navigation__menu {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: row;
+    column-gap: 1em;
+    height: auto;
+    max-height: 100%;
+    opacity: 1;
+    font-weight: $font-bold;
+    pointer-events: auto;
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        font-size: $font-base-lg;
+    }
+}
+
+
+.c-navigation__menuItem {
+    display: block;
+
+    .u-link {
+        @include inline-block();
+    }
+}
+
+/**
+ * === LOGO ===
+ */
+
+.c-navigation__logo {
+    margin-right: auto;
+
+    .c-media__image {
+        max-height: 44px;
+        max-width: 220px;
+    }
+}
+
+/**
+ * === TOGGLE ===
+ */
+
+.c-navigation__toggle {
+    position: relative;
+    flex: 0 1 30px;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        display: none;
+    }
+}
+
+/**
+ * === SUBNAV MENUS ===
+ */
+
+.c-submenu {
+    @include box-shadow();
+    @include padding();
+    position: absolute;
+    top: rem(52px);
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.5em;
+    row-gap: 0.5em;
+    width: 100%;
+    height: auto;
+    max-height: max-content;
+    padding: $gutter-sm $gutter;
+    opacity: 1;
+    background-color: $black--light;
+    background-color: var(--primary-color, $black--light);
+    color: $white;
+    color: var(--bg-color, $white);
+    visibility: visible;
+    z-index: 100;
+
+    &.is-hidden {
+        height: 0;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        font-size: $font-h6;
+        font-weight: $font-regular;
+    }
+}
+
+.c-submenu__item {
+    position: relative;
+    line-height: $heading-height;
+
+    &::after {
+        content: ("/");
+        position: absolute;
+        right: calc(0px - 1em);
+        top: 0;
+        line-height: $heading-height;
+    }
+
+    @include last(1) {
+        text-transform: uppercase;
+        letter-spacing: rem(1px);
+        &::after {
+            content: "";
+        }
+    }
+
+    .u-link {
+        @include inline-block();
+    }
+}

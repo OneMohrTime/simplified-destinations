@@ -1,0 +1,65 @@
+{# -- Base Page Layout -- #}
+{# ----------------------------------------------------------------- #}
+{% extends '_base/base.twig' %}
+
+{# -- Page Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set headline = post.meta('post_headline')|default(post.title) %}
+{% set subheadline = post.meta('post_subheadline')|default(null) %}
+{% set bannerImage = post.meta('banner_image') ?? post.thumbnail|default(null) %}
+{% set bannerImages = post.meta('banner_images')|default(null) %}
+{% set bannerVideo = post.meta('banner_video_embed')|default(null) %}
+{% set bannerType = post.meta('banner_type')|default('default') %}
+{% set buttons = post.meta('external_links')|default(null) %}
+{% set footerCTA = globals.footer_project|default(null) %}
+{% set footerImage = post.meta('footer_photo')|default(null) %}
+
+{# -- Page Template -- #}
+{# ----------------------------------------------------------------- #}
+{% block content %}
+
+    <article class="o-page">
+
+        {% include '_components/banner.twig' with {
+            params: {
+                headline: headline,
+                text: subheadline,
+                style: bannerType,
+                image: get_image(bannerImage),
+                images: bannerImages,
+                video: bannerVideo,
+                buttons: buttons,
+                content: post.content
+            }
+        } only %}
+
+    </article>
+
+    {# https://codepen.io/steamchatter/pen/ExaaWxQ #}
+
+    <aside class="o-sidebar" data-scroll-trigger>
+        <div class="o-sidebar__content">
+            <h2 class="u-subheadline">{{ footerCTA.headline|default('') }}</h2>
+            <figure class="c-media is-qrCode">
+                <img src="{{ footerCTA.qr_code.sizes.medium }}" alt="" class="c-media__image" />
+            </figure>
+            {{ footerCTA.description }}
+            {% include '_elements/button.twig' with {
+                params: {
+                    url: footerCTA.button.url,
+                    text: 'Vote For Entry',
+                    target: '_blank'
+                }
+            } only %}
+        </div>
+        {% if footerImage %}
+            {% include '_components/image.twig' with {
+                params: {
+                    src: footerImage,
+                    classes: 'is-parallax'
+                }
+            } only %}
+        {% endif %}
+    </aside>
+
+{% endblock %}

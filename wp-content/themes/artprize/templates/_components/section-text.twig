@@ -1,0 +1,30 @@
+{# -- Component Variables -- #}
+
+{% set this = {
+    text: params.section|default(null)
+} %}
+
+{# -- Component Template -- #}
+
+{% if this.text %}
+<div class="c-content">
+
+    <div class="u-wysiwyg">
+        <h2 class="u-headline" data-scroll-trigger>{{ this.text.headline }}</h2>
+        <div class="u-wysiwyg" data-scroll-trigger>
+            {{ this.text.body }}
+            {% if this.text.button %}
+                {% include '_elements/button.twig' with {
+                    params: {
+                        url: this.text.button.url,
+                        text: this.text.button.title,
+                        target: this.text.button.target,
+                        primary: true
+                    }
+                } only %}
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+{% endif %}

@@ -4,8 +4,8 @@ let mix = require('laravel-mix');
 
 let PATHS = {
     node: './node_modules',
-    src: './wp-content/themes/timber-starter-theme/src',
-    dist: './wp-content/themes/timber-starter-theme/assets',
+    src: './wp-content/themes/artprize/src',
+    dist: './wp-content/themes/artprize/assets',
     proxy: 'https://simplified-destinations.ddev.site'
 };
 

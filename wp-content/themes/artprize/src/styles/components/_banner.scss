@@ -1,0 +1,306 @@
+/* ==========================================================================
+    Banner
+========================================================================== */
+
+.c-banner {
+    position: relative;
+    margin-bottom: $gutter;
+    padding-left: $gutter;
+    padding-right: $gutter;
+
+    // screen at or above 600px
+    @include media(">=small") {}
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        margin-bottom: 0;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {}
+}
+
+/**
+ * === DEFAULT ===
+ */
+.c-banner.is-default {
+    padding-top: $gutter;
+    padding-bottom: $gutter;
+
+    // No media of any kind, just text
+    &.no-image {
+        padding-top: $gutter-xs;
+        padding-bottom: $gutter-xs;
+        background-color: transparent;
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            padding-top: $gutter-sm;
+            padding-bottom: $gutter-xs;
+        }
+    }
+}
+
+/**
+ * === STACKED BANNER ===
+ */
+.c-banner.is-stacked {
+    // @include padding();
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    row-gap: $gutter-sm;
+    margin-bottom: $gutter-sm;
+    padding-top: $gutter-sm;
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        row-gap: $gutter;
+        margin-bottom: $gutter;
+        padding-top: $gutter;
+    }
+}
+
+/**
+ * === LOCATION BANNER ===
+ */
+.c-banner.is-location {
+    @include padding();
+    color: var(--primary-color, $black--light);
+
+    .c-banner__title {
+        font-weight: $font-heavy;
+        color: var(--primary-color, $black--light);
+    }
+
+    .c-banner__subtitle {
+        font-weight: $font-bold;
+        color: var(--secondary-color, $white--dark);
+    }
+
+    .c-button-group {
+        margin-top: $gutter-xl;
+        padding: $gutter-sm;
+        background-color: var(--primary-color, $black--light);
+        background-image: url("/wp-content/themes/artprize/assets/img/cardboard.png");
+        background-blend-mode: multiply;
+        color: var(--bg-color, $white--dark);
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            padding: $gutter;
+        }
+    }
+
+    .u-stretch-text {
+        margin: 0;
+        font-weight: inherit;
+        line-height: 1em;
+    }
+
+    .sun {
+        $sun-size: 120px;
+        $sun-speed: 45s;
+        position: absolute;
+        top: 0;
+        left: calc(50% - (math.div($sun-size, 2)));
+        width: 120px;
+        height: 120px;
+        transform-origin: 50% 300%;
+        border-radius: 120px;
+        background: var(--secondary-color, $yellow);
+        animation: sun-goes-down $sun-speed linear alternate infinite;
+        z-index: -1;
+    }
+
+    @keyframes sun-goes-down {
+        0% {
+            transform: rotate(-60deg);
+        }
+        100% {
+            transform: rotate(60deg);
+        }
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: $gutter;
+
+        .c-banner__title {
+            margin-bottom: $gutter;
+        }
+
+        .c-banner__title,
+        .c-banner__subtitle {
+            flex: 1 1 100%;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .c-banner__text,
+        .c-banner__media {
+            flex: 0 1 50%;
+            max-width: calc(50% - $gutter-sm);
+        }
+
+        .c-banner__text {
+            font-size: $font-base-lg;
+        }
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
+        column-gap: $gutter-lg;
+
+        .c-banner__text,
+        .c-banner__media {
+            max-width: calc(50% - $gutter);
+        }
+    }
+}
+
+/**
+ * === SWIPER SLIDES ===
+ */
+.c-banner.is-slides {
+    padding-left: 0;
+    padding-right: 0;
+
+    // screen at or above 600px
+    @include media(">=small") {
+        display: flex;
+        align-items: center;
+        column-gap: 0;
+
+        .c-banner__text {
+            max-width: 50%;
+            padding: $gutter-lg;
+        }
+        .c-banner__media {
+            max-width: 50%;
+        }
+    }
+}
+
+/**
+ * === CONTENT ===
+ */
+
+.c-banner__text {
+    position: relative;
+    margin-bottom: $gutter;
+    z-index: 1;
+
+    // Elements
+    .u-title,
+    .u-headline,
+    .u-subheadline {
+        display: block;
+    }
+    .u-title {
+        margin-bottom: 0;
+    }
+    .c-button {
+        margin-top: 1em;
+    }
+
+    // Default Banner
+    .c-banner.is-default & {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    // Stacked Media Banner
+    .c-banner.is-stacked & {
+        .u-headline,
+        .u-wysiwyg {
+            flex: 0 1 50%;
+        }
+        .u-wysiwyg {
+            // @include body-copy();
+        }
+    }
+
+    // Slideshow Banner
+    .c-banner.is-slides & {
+        flex: 0 1 50%;
+        max-width: 50%;
+        padding-top: $gutter;
+    }
+
+    // screen at or above 900px
+    @include media(">=small") {
+        // Stacked Media Banner
+        .c-banner.is-stacked & {
+            display: flex;
+            flex-direction: row;
+            column-gap: $gutter;
+            .u-headline {
+                margin-bottom: 0;
+                line-height: $heading-height;
+            }
+        }
+    }
+
+    // screen at or above 900px
+    @include media(">=medium") {
+        margin-bottom: 0;
+    }
+}
+
+/**
+ * === IMAGE / VIDEO ===
+ */
+
+.c-banner__media {
+    position: relative;
+
+    // Default Banner
+    .c-banner.is-default {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    // Slideshow Banner
+    .c-banner.is-location & {
+        position: relative;
+    }
+
+    // Slideshow Banner
+    .c-banner.is-slides & {
+        flex: 0 1 50%;
+        max-width: 50%;
+
+        .swiper-scrollbar.swiper-scrollbar-horizontal {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 12px;
+            border-radius: 0;
+            cursor: grab;
+        }
+
+        .swiper-scrollbar-drag {
+            border-radius: 4px;
+        }
+
+        .c-button {
+            padding: 2em;
+        }
+    }
+
+    .c-media {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

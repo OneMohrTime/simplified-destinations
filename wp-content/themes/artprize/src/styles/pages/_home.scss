@@ -1,0 +1,89 @@
+/* ==========================================================================
+    Home
+========================================================================== */
+
+.t-page.is-home {
+    // Page
+    .o-page__sections {
+        display: block;
+    }
+
+    // Banner slider
+    .c-banner {
+        .c-banner__text {
+            padding-top: 0
+        }
+
+        // screen at or above 1200px
+        @include media(">=large") {
+            .u-subheadline {
+                margin-top: 1em
+            }
+        }
+    }
+
+    // Stats grid
+    .c-grid {
+        @include padding();
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+        background-color: $black;
+        .u-heading {
+            margin-bottom: $gutter-xs;
+            font-size: $font-h1;
+            color: $white--dark;
+        }
+        .u-wysiwyg {
+            @include label();
+            color: $white--darker;
+        }
+    }
+
+    // Text over media intro
+    .c-textMedia {
+        overflow: hidden;
+        z-index: 1;
+
+        .c-textMedia__text {
+            padding: $gutter-sm;
+            background-color: fade-out($white, 0.1);
+            border-radius: $border-radius;
+        }
+
+        .c-textMedia__media {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        // screen at or above 900px
+        @include media(">=medium") {
+            flex-direction: row;
+            padding: $gutter-lg;
+
+            .u-subheadline {
+                font-size: $font-h2;
+                line-height: 0.8em;
+            }
+        }
+    }
+
+    // Spotify embed
+    .c-content {
+        max-width: 960px;
+        margin-top: $gutter-lg;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: $gutter-sm;
+        text-align: center;
+    }
+    .c-embed {
+        @include padding();
+        padding-bottom: $gutter-lg;
+    }
+}

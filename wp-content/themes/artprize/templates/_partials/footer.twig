@@ -1,0 +1,44 @@
+{# -- Partial Variables -- #}
+{# ----------------------------------------------------------------- #}
+{% set this = {
+    contact: params.formID,
+    about: params.about,
+    social: params.socialMedia,
+    siteLogo: params.siteLogo,
+    siteName: params.siteName,
+    siteUrl: params.siteUrl
+} %}
+
+{# -- Partial Template -- #}
+{# ----------------------------------------------------------------- #}
+<footer class="o-site__footer">
+
+    {# -- Footer -- #}
+    <div id="colophon" class="c-footer">
+        <h2 class="u-screen-reader-text">Colophon</h2>
+        <div class="c-footer__about">
+            <h3 class="u-heading">{{ this.about.headline }}</h3>
+            <div class="u-wysiwyg">
+                {{ this.about.body }}
+            </div>
+            <ul class="c-menu c-footer__social">
+                {% for profile in this.social %}
+                    {% set profile = profile.profile %}
+                    <li class="c-menuItem c-footer__social-profile">
+                        <a href="{{ profile.url }}" target="_blank" rel="noopener noreferrer nofollow">
+                            {{ source('_elements/svg/social-' ~ profile.title|lower ~ '.svg') }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="c-footer__form">
+            {% apply shortcodes %}
+                [mc4wp_form id={{ this.contact }}]
+            {% endapply %}
+        </div>
+        <div class="c-footer__legal">
+            &copy; 2017—{{ 'now'|date('Y') }} | Website by <a href="https://onemohrti.me?utm_campaign=Footer+Links&utm_source={{ this.siteName|replace({' ':'+'}) }}" class="u-link" target="_blank" rel="noopener noreferrer nofollow">OneMohrTime Design Co.</a>
+        </div>
+    </div>
+</footer>
