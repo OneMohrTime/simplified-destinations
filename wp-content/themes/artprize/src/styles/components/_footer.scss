@@ -5,14 +5,16 @@
 .c-footer {
     position: relative;
     padding: $gutter;
+    text-align: center;
     background-color: $black;
     color: $white;
 
-    // screen at or above 900px
-    @include media(">=medium") {
+    // screen at or above 600px
+    @include media(">=small") {
         display: flex;
         flex-wrap: wrap;
         column-gap: $gutter;
+        text-align: left;
     }
 
     // screen at or above 1200px
@@ -22,10 +24,41 @@
 }
 
 .c-footer__about {
+
+    .u-heading {
+        @include label();
+        margin-bottom: $base-spacing;
+    }
+
+    .u-wysiwyg {
+        line-height: $heading-height;
+    }
+
     // screen at or above 900px
     @include media(">=medium") {
         flex: 1 0 50%;
         max-width: 50%;
+    }
+}
+
+.c-footer__social {
+    margin-top: $gutter-sm;
+
+    &.c-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        column-gap: $gutter-sm;
+        // screen at or above 600px
+        @include media(">=small") {
+            justify-content: flex-start;
+        }
+    }
+
+    // Icon size
+    .c-media__svg {
+        width: 24px;
+        height: 24px;
     }
 }
 
@@ -34,10 +67,15 @@
     @include media(">=medium") {
         flex: 0 1 50%;
         max-width: 400px;
+        margin-left: auto;
     }
 }
 
 .c-footer__legal {
+    @include caption();
+    margin-top: $gutter;
+    font-size: $font-base;
+    font-weight: $font-bold;
     text-align: center;
 
     // screen at or above 900px

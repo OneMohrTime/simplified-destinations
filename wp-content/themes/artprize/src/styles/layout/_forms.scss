@@ -7,11 +7,15 @@
     width: auto;
     height: auto;
     padding: $small-spacing;
-    border: 2px solid $black;
+    border: 2px solid $white;
     border-radius: $border-radius;
     background-color: transparent;
-    color: $black;
+    color: $white;
     // all: revert;
+
+    &::placeholder {
+        columns: $gray;
+    }
 }
 
 [type=file], select {
