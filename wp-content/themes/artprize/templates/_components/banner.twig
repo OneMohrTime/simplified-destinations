@@ -22,36 +22,52 @@
     {% endif %}
 
     <div class="c-banner__text">
+        {% switch this.type %}
 
-        {% if this.type != 'location' %}
-            <h1 class="u-title" data-scroll-trigger>{{ this.headline }}</h1>
-        {% endif %}
+            {% case 'slides' %}
+                <h1 class="u-title" data-scroll-trigger>{{ this.headline }}</h1>
+                {% if this.subheadline %}
+                    <strong class="u-subheadline" data-scroll-trigger>{{ this.subheadline }}</strong>
+                {% endif %}
 
-        {% if this.subheadline and this.type != 'location' %}
-            <strong class="u-subheadline" data-scroll-trigger>{{ this.subheadline }}</strong>
-        {% endif %}
+            {% case 'stacked' %}
+                <h1 class="u-headline" data-scroll-trigger>{{ this.headline }}</h1>
+                {% if this.subheadline %}
+                    <div class="u-wysiwyg" data-scroll-trigger>
+                        {{ this.subheadline }}
+                    </div>
+                {% endif %}
 
-        {% if this.content and this.type == 'location' %}
-            <div class="u-wysiwyg" data-scroll-trigger>
-                {{ this.content }}
-            </div>
-        {% endif %}
+            {% case 'location' %}
+                {% if this.content %}
+                    <div class="u-wysiwyg" data-scroll-trigger>
+                        {{ this.content }}
+                    </div>
+                {% endif %}
+                {% if this.buttons %}
+                    <div class="c-button-group" data-scroll-trigger>
+                        <h2 class="is-h4">My Experiences</h2>
+                        <p>If you're interested in more reading, I've written about my experiences here!</p>
+                        {% for button in this.buttons %}
+                            {% include '_elements/button.twig' with {
+                                params: {
+                                    url: button.link.url,
+                                    text: button.link.title,
+                                    target: button.link.target
+                                }
+                            } only %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
 
-        {% if this.buttons %}
-            <div class="c-button-group" data-scroll-trigger>
-                <h2 class="is-h4">My Experiences</h2>
-                <p>If you're interested in more reading, I've written about my experiences here!</p>
-                {% for button in this.buttons %}
-                    {% include '_elements/button.twig' with {
-                        params: {
-                            url: button.link.url,
-                            text: button.link.title,
-                            target: button.link.target
-                        }
-                    } only %}
-                {% endfor %}
-            </div>
-        {% endif %}
+            {% default %}
+                <h1 class="u-title" data-scroll-trigger>{{ this.headline }}</h1>
+                {% if this.subheadline %}
+                    <strong class="u-subheadline" data-scroll-trigger>{{ this.subheadline }}</strong>
+                {% endif %}
+
+        {% endswitch %}
+
     </div>
 
     <figure class="c-banner__media" data-scroll-trigger>
@@ -81,14 +97,35 @@
                 <button class="swiper-button-next c-button"></button>
             </div>
 
+            {% case 'stacked' %}
+            {% set renderedImage = get_image(this.image) %}
+            {% include '_elements/picture.twig' with {
+                params: {
+                    src: renderedImage,
+                    ratio: '3:1',
+                    classes: 'is-parallax'
+                }
+            } only %}
+
+            {% case 'location' %}
+            {% if this.image is not empty %}
+                {% set renderedImage = get_image(this.image) %}
+                {% include '_elements/picture.twig' with {
+                    params: {
+                        src: renderedImage,
+                        ratio: '1:1',
+                        classes: 'is-contained'
+                    }
+                } only %}
+            {% endif %}
+
             {% default %}
             {% if this.image is not empty %}
                 {% set renderedImage = get_image(this.image) %}
                 {% include '_elements/picture.twig' with {
                     params: {
                         src: renderedImage,
-                        ratio: (this.type == 'location') ? '1:1' : '4:3',
-                        classes: (this.type == 'location') ? 'is-contained'
+                        ratio: '4:3',
                     }
                 } only %}
             {% endif %}

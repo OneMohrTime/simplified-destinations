@@ -10,12 +10,21 @@
 //
 // A list of aspect ratios that get generated as modifier classes.
 $aspect-ratios: (
-    (1:1),  // Square
-    (4:3),  // Traditional TV
-    (3:2),  // 35mm film
-    (16:9), // HD standard
-    (2:1),  // Universium
-    (32:9), // Super ultrawide
+    (9:16),   // Vertical video
+    (4:5),    // Social media portrait
+    (5:4),    // Early computer monitors
+    (1:1),    // Square
+    (4:3),    // Traditional TV
+    (3:2),    // 35mm film
+    (16:10),  // Widescreen computer displays
+    (16:9),   // HD standard
+    (18:9),   // Modern smartphone
+    (2:1),    // Universium
+    (21:9),   // CinemaScope
+    (3:1),    // Ultra-widescreen
+    (4:1),    // Ultra Panavision
+    (22:9),   // Panavision
+    (32:9),   // Super ultrawide
 ) !default;
 
 /* stylelint-disable */

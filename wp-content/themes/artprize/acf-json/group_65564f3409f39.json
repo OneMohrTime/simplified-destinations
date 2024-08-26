@@ -18,6 +18,7 @@
             },
             "choices": {
                 "default": "Single Image",
+                "stacked": "Stacked Media",
                 "location": "Location Post",
                 "slides": "Slideshow"
             },
@@ -65,6 +66,13 @@
                     {
                         "field": "field_65564f378621a",
                         "operator": "==",
+                        "value": "stacked"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_65564f378621a",
+                        "operator": "==",
                         "value": "location"
                     }
                 ]
@@ -98,7 +106,7 @@
                     {
                         "field": "field_65564f378621a",
                         "operator": "==",
-                        "value": "video"
+                        "value": "stacked"
                     }
                 ]
             ],
@@ -172,5 +180,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1722915617
+    "modified": 1724642968
 }

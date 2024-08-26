@@ -14,7 +14,8 @@
     // all: revert;
 
     &::placeholder {
-        columns: $gray;
+        color: $gray;
+        color: var(--bg-color, $gray--lightest);
     }
 }
 

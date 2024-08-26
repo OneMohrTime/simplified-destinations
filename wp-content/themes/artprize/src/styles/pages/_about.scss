@@ -2,4 +2,9 @@
     About
 ========================================================================== */
 
-.t-page.is-about {}
+.t-page.is-about {
+
+    .o-page__sections {
+        padding-bottom: $gutter;
+    }
+}

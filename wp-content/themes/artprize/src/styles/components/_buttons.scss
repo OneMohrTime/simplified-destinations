@@ -69,61 +69,15 @@
     }
 
     &:active {
-        // background-color: var(--tertiary-color, $gray--lightest);
-        // color: var(--bg-color, $black);
+        color: var(--tertiary-color, $white);
     }
 
     &:hover {
-        // background-color: var(--secondary-color, $gray--lightest);
         color: var(--primary-color, $white);
         &::before {
             transform: scale(1);
         }
     }
-    // @include btn-color();
-    // padding: $small-spacing $base-spacing;
-    // font-family: $font-header;
-    // font-size: $font-base-sm;
-    // font-weight: 700;
-    // // letter-spacing: 0.5px;
-    // text-align: center;
-    // text-transform: uppercase;
-    // border-radius: $border-radius;
-
-    // &::after {
-    //     content: "";
-    //     position: absolute;
-    //     right: 0;
-    //     bottom: 0;
-    //     width: 0;
-    //     height: 10px;
-    // }
-
-    // @include media(">=small") {
-    //     // padding: 0.25vw 1vw;
-    //     &::after {
-    //         transition: all $speed;
-    //     }
-    // }
-
-    // // hover, focus
-    // @include hocus {
-    //     background-color: transparent;
-    //     color: inherit;
-
-    //     @include media(">=small") {
-    //         transition: all $speed;
-    //         &::after {
-    //             left: 0;
-    //             width: 100%;
-    //         }
-    //     }
-    // }
-
-    // &:active {
-    //     background-color: $black;
-    //     color: $white;
-    // }
 
     // // disabled buttons
     // &:disabled {
@@ -149,6 +103,11 @@
 .c-button {
     @include btn-style();
     //	@include mask-texture();
+
+    &.is-secondary {
+        background-color: var(--secondary-color, $black--light);
+        color: var(--bg-color, $white--dark);
+    }
 
     .c-media__svg {
         position: relative;
