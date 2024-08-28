@@ -271,7 +271,8 @@
 
     // Slideshow Banner
     .c-banner.is-location & {
-        position: relative;
+        position: sticky;
+        top: 0;
     }
 
     // Slideshow Banner
