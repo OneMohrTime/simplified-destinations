@@ -82,7 +82,7 @@
         margin-top: $gutter-xl;
         padding: $gutter-sm;
         background-color: var(--primary-color, $black--light);
-        background-image: url("/wp-content/themes/artprize/assets/img/cardboard.png");
+        background-image: url("https://simplified-destinations.com/assets/img/cardboard.png");
         background-blend-mode: multiply;
         color: var(--bg-color, $white--dark);
 
@@ -271,7 +271,8 @@
 
     // Slideshow Banner
     .c-banner.is-location & {
-        position: relative;
+        position: sticky;
+        top: 0;
     }
 
     // Slideshow Banner
