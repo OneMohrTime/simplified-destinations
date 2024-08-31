@@ -4,6 +4,18 @@
 
 .t-post {
 
+    // screen at or above 1500px
+    @include media(">=big") {
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+    }
+
+    // screen at or above 1800px
+    @include media(">=huge") {
+        padding-top: $gutter-lg;
+        padding-bottom: $gutter-lg;
+    }
+
     &.is-amsterdam {
         --primary-color: #1b4f76;
         --secondary-color: #f26a37;

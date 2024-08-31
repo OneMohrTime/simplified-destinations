@@ -3,19 +3,21 @@
 ========================================================================== */
 
 .c-footer {
+    @include padding();
     position: relative;
-    padding: $gutter;
+    padding-top: $gutter;
+    padding-bottom: $gutter;
     text-align: center;
     background-color: var(--primary-color, $black);
     color: var(--bg-color, $white);
 
     .t-post & {
-        background-image: url("https://simplified-destinations.com/assets/img/cardboard.png");
+        background-image: url("https://simplified-destinations.com/wp-content/uploads/cardboard.png");
         background-blend-mode: multiply;
     }
 
-    // screen at or above 600px
-    @include media(">=small") {
+    // screen at or above 900px
+    @include media(">=medium") {
         display: flex;
         flex-wrap: wrap;
         column-gap: $gutter;
@@ -24,7 +26,14 @@
 
     // screen at or above 1200px
     @include media(">=large") {
+        padding-top: $gutter-lg;
         column-gap: $gutter-lg;
+    }
+
+    // screen at or above 1500px
+    @include media(">=big") {
+        border-bottom-left-radius: $page-radius;
+        border-bottom-right-radius: $page-radius;
     }
 }
 
@@ -41,8 +50,8 @@
 
     // screen at or above 900px
     @include media(">=medium") {
-        flex: 1 0 50%;
-        max-width: 50%;
+        flex: 0 1 calc(50% - $gutter-sm);
+        max-width: calc(50% - $gutter-sm);
     }
 }
 
@@ -54,8 +63,8 @@
         flex-direction: row;
         justify-content: center;
         column-gap: $gutter-sm;
-        // screen at or above 600px
-        @include media(">=small") {
+        // screen at or above 900px
+        @include media(">=medium") {
             justify-content: flex-start;
         }
     }
@@ -77,6 +86,7 @@
 }
 
 .c-footer__form {
+    margin-top: $gutter;
 
     .c-button {
         background-color: var(--secondary-color, $white--dark);
@@ -88,7 +98,13 @@
 
     // screen at or above 900px
     @include media(">=medium") {
-        flex: 0 1 50%;
+        flex: 0 1 calc(50% - $gutter-sm);
+        max-width: calc(50% - $gutter-sm);
+        margin-top: 0;
+    }
+
+    // screen at or above 1200px
+    @include media(">=large") {
         max-width: 400px;
         margin-left: auto;
     }

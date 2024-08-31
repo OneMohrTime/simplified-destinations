@@ -220,7 +220,6 @@ export default class extends es6Module {
       a11y: {
         enabled: true
       },
-      autoHeight: true,
       effect: 'slide',
       lazy: true,
       lazyPreloadPrevNext: 1,

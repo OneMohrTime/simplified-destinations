@@ -22,7 +22,7 @@ body {
     // font-size: clamp(100%, 1rem + 2vw, 1.33em);
     font-size: 1em;
     background-color: $white--darker;
-    background-image: url("https://simplified-destinations.com/assets/img/asfalt-dark.png");
+    background-image: url("https://simplified-destinations.com/wp-content/uploads/asfalt-dark.png");
     color: $black;
 
     // crisp typography rendering
@@ -54,11 +54,13 @@ body {
     }
 
     @include media(">=big") {
+        @include box-shadow();
         display: flex;
         flex-direction: column;
         max-width: 1440px;
         margin-left: auto;
         margin-right: auto;
+        border-radius: $page-radius;
     }
 
     @include media(">=huge") {
