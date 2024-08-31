@@ -54,11 +54,13 @@ body {
     }
 
     @include media(">=big") {
+        @include box-shadow();
         display: flex;
         flex-direction: column;
         max-width: 1440px;
         margin-left: auto;
         margin-right: auto;
+        border-radius: $page-radius;
     }
 
     @include media(">=huge") {

@@ -45,6 +45,12 @@
     @include media(">=medium") {
         justify-content: flex-end;
     }
+
+    // screen below 599px
+    @include media("<small") {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 .o-sidebar__content {

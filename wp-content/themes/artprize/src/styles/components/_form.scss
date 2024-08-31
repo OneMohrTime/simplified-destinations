@@ -8,10 +8,17 @@
 
 .c-form__row {
     display: flex;
-    column-gap: $base-spacing;
+    flex-direction: column;
+    gap: $small-spacing;
 
     & + & {
         margin-top: $small-spacing;
+    }
+
+    // screen at or above 600px
+    @include media(">=small") {
+        flex-direction: row;
+        gap: $base-spacing;
     }
 }
 

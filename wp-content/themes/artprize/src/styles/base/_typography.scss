@@ -80,6 +80,10 @@ h6 {
         }
     }
 
+    p + p {
+        margin-top: $line-height;
+    }
+
     p + .c-button {
         margin-top: $small-spacing
     }
