@@ -30,6 +30,24 @@
             }
         } only %}
 
+        <section class="c-locations" data-module-sort>
+            <div class="c-locations__sort" data-scroll-trigger>
+                <form method="get" action="">
+                    <select name="sort_by" onchange="this.form.submit()">
+                        <option value="titleAsc" {% if sort_by == 'titleAsc' or sort_by == 'title' %}selected{% endif %}>Title ↑</option>
+                        <option value="titleDesc" {% if sort_by == 'titleDesc' %}selected{% endif %}>Title ↓</option>
+                        <option value="date" {% if sort_by == 'date' %}selected{% endif %}>Date</option>
+                        <option value="rand" {% if sort_by == 'rand' %}selected{% endif %}>Random</option>
+                    </select>
+                </form>
+            </div>
+            {% include '_components/grid.twig' with {
+                params: {
+                    items: locations
+                }
+            } only %}
+        </section>
+
         {% include '_partials/page-builder.twig' with {
             params: {
                 sections: pageBuilder

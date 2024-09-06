@@ -19,4 +19,51 @@
     .o-page__sections {
         padding-bottom: $gutter;
     }
+
+    .c-locations {
+        @include padding();
+        margin-bottom: $gutter;
+
+        .c-grid {
+            padding-left: 0;
+            padding-right: 0;
+
+            // screen at or above 900px
+            @include media(">=medium") {
+                gap: $gutter;
+            }
+        }
+
+        .c-grid__item {
+            text-align: left;
+
+            .c-media__image {
+                object-fit: contain;
+                object-position: bottom;
+            }
+
+            .u-heading {
+                margin-top: $small-spacing;
+                font-size: $font-base-lg;
+            }
+
+            // screen at or above 900px
+            @include media(">=medium") {
+                flex-basis: percentage(1/3);
+                max-width: calc(percentage(1/3) - ($gutter / 3 * 2));
+            }
+
+            // screen at or above 1200px
+            @include media(">=large") {
+                flex-basis: 25%;
+                max-width: calc(25% - ($gutter / 4 * 3));
+            }
+        }
+    }
+    .c-locations__sort {
+        text-align: right;
+        form {
+            display: inline-block;
+        }
+    }
 }

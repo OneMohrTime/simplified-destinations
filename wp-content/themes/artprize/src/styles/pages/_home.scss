@@ -29,6 +29,14 @@
             text-align: center;
         }
 
+        .u-title {
+            line-height: 0.8em;
+        }
+
+        .u-subheadline {
+            margin-top: $base-spacing;
+        }
+
         // screen at or above 600px
         @include media(">=small") {
             .c-banner__text {
@@ -42,8 +50,7 @@
                 font-size: $font-h3;
             }
             .u-subheadline {
-                font-size: $font-h4;
-                margin-top: 1em
+                font-size: $font-h5;
             }
         }
     }
@@ -92,6 +99,10 @@
                 max-width: 100%;
                 object-fit: cover;
                 z-index: -1;
+
+                .c-media {
+                    height: 100%;
+                }
             }
         }
 
